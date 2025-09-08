@@ -1,3 +1,11 @@
+/* Style for the water drop icon inside the donate button */
+.donate-icon {
+  height: 20px;
+  width: auto;
+  margin-left: 8px;
+  vertical-align: middle;
+  margin-top: -5px; /* Move the water drop 5px up */
+}
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:
@@ -23,23 +31,34 @@ Fonts:
   This CSS uses the provided color palette and beginner-friendly styles.
 */
 
+/* Make the webpage fill the screen of any size */
+html, body {
+  height: 100%; /* Fill the height of the screen */
+  width: 100%;  /* Fill the width of the screen */
+  margin: 0;    /* Remove default margin */
+  padding: 0;   /* Remove default padding */
+}
+
 /* Set up the main font and background color for the whole page */
 body {
+  min-height: 100vh; /* Make sure body is at least the height of the viewport */
+  box-sizing: border-box;
   border-bottom: 94px solid #1a1a1a; 
   background-color: #77a8bb; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   color: #222;
 }
 
 section.top_border {
-  background-color: #1a1a1a; 
-  text-align: left;
-  max-width: 100%;
+  background-color: #1a1a1a;
+  margin: 0%; 
+  border-radius: 0;
   height: 94px;
   position: relative;
   background-image: url("https://www.charitywater.org/images/logos/charity-water-logo.svg");
+  background-size: 38px 6px;
+  background-position: left center;
+  
 
 }
 
@@ -54,38 +73,55 @@ section {
 
 /* Hero Section Styles */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  text-align: left;          /* Align the text to the left */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  /* Use a light blue background for the hero section */
+  background-color: #77a8bb;
+  border-radius: 0 0 16px 16px;
+  padding: 60px 40px;
+  text-align: left;
+  /* Add some space at the bottom of the hero section */
+  margin-bottom: 20px;
+  /* Clear floats inside the hero section */
+  overflow: auto;
 }
 
-/* Make the headline bold and modern */
+/* Hero text on the left */
+.hero-text {
+  float: left; /* Place text on the left */
+  width: 55%;  /* Take up most of the space */
+}
+
 .hero h1 {
-  font-size: 42pt;
+  font-size: 2em;
   font-weight: normal;
-  color: #1a1a1a
+  color: #1a1a1a;
   letter-spacing: 1px;
   margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* Style the subheadline */
 .hero p {
-  font-size: 18pt;
-  color: #fff7e1; /* Light yellow for contrast */
+  font-size: 1.2em;
+  color: #fff7e1;
   margin-top: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* Hero image on the right */
+.hero-image {
+  float: right; /* Place image on the right */
+  width: 220px; /* Set a fixed width for the image */
+  max-width: 40%; /* Make sure it doesn't get too big */
+  margin-left: 24px; /* Add space between text and image */
+  border: 10px solid #fff7e1;
+  border-radius: 8px;
+  margin-top: 80px; /* Move the image 30px down */
+}
+
+/* Clear floats after the hero section so layout isn't broken */
+.hero::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Story Section Styles */
@@ -111,26 +147,52 @@ h2 {
   padding: 30px 20px;
 }
 
-/* Style the impact story image */
-.impact-image {
+/* Donate Section Styles */
+.donate-section {
+  background-color: #fff7e1; /* Primary Yellow */
+  color: #1a1a1a;
+  text-align: left; /* Align text to the left */
+  padding: 10px 16px; /* Smaller padding for compact look */
+  border-radius: 12px;
+  margin: 16px 0 0 0; /* Add space above, no side margin */
+  max-width: 220px; /* Make the donate section narrower to fit under text */
   width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+}
+
+/* Container for paragraph and button side by side */
+.donate-row {
+  /* Clear floats after the row */
+  overflow: auto;
+  height: 50px; /* Set a fixed height for the row */
+}
+
+.donate-amount {
+  float: left; /* Place the amount to the left */
+  font-size: 1.2em;
+  color: #1a1a1a!important; /* Dark color for readability */
+  font-weight: bold;
+  margin: 0;
+  padding: 0; /* Remove extra padding */
+  line-height: 48px; /* Vertically center the text in the row */
+}
+
+.donate-button {
+  float: right; /* Place the button to the right */
+  margin-top: 0;
+  margin-left: 10px;
 }
 
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #FFC907; /* Yellow */
   color: #fff;
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
   font-size: 1.1em;
-  margin-top: 18px;
+  margin-top: 0 px;
   box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
   transition: background 0.3s, transform 0.2s;
   border: none;
@@ -140,7 +202,7 @@ h2 {
 /* Change button color when hovered */
 .donate-button:hover {
   background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+
 }
 
 /* Add some spacing between sections */
